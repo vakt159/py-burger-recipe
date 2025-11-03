@@ -38,7 +38,7 @@ class Number(Validator):
 
 class OneOf(Validator):
 
-    def __init__(self, options: tuple) -> None:
+    def __init__(self, *options) -> None:
         self.options = options
 
     def validate(self, value: str) -> bool:
@@ -54,7 +54,7 @@ class BurgerRecipe:
     cutlets = Number(1, 3)
     tomatoes = Number(0, 3)
     eggs = Number(0, 2)
-    sauce = OneOf(("ketchup", "mayo", "burger"))
+    sauce = OneOf("ketchup", "mayo", "burger")
 
     def __init__(self,
                  buns: int,
